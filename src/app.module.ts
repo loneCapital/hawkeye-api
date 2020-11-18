@@ -1,11 +1,23 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { MarketBreadthModule } from './market-breadth/market-breadth.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
-  imports: [MarketBreadthModule],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: 'localhost',
+      port: 3306,
+      database: 'stocks',
+      username: 'stocks',
+      password: '123456',
+      entities: ['dist/**/*.entity.js'],
+      synchronize: true,
+      logging: true,
+    }),
+    MarketBreadthModule,
+    UsersModule,
+  ],
 })
 export class AppModule {}
