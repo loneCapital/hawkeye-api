@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { MarketBreadthModule } from './market-breadth/market-breadth.module';
 import { UsersModule } from './users/users.module';
-import { User } from './users/user.model';
 
 @Module({
   imports: [
