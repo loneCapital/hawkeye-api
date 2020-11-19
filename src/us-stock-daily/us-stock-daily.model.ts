@@ -3,7 +3,7 @@ import { Column, Model, Table, DataType } from 'sequelize-typescript';
 @Table({ tableName: 'newus_stocks_dcopy', createdAt: false, updatedAt: false })
 export class USStockDaily extends Model<USStockDaily> {
   @Column({ comment: '日期' })
-  date: Date;
+  date: string;
   @Column({ comment: '代码' })
   symbol: string;
   @Column({ comment: '名称' })
