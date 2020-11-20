@@ -21,6 +21,7 @@ export class MarketBreadthController {
   async fetch(): Promise<any> {
     const stocks = (await this.usStockDalyService.findAll({
       where: {
+        sector: { [Op.not]: null },
         // date: '2020-11-19 00:00:00.000',
         date: {
           [Op.between]: ['2020-9-18 00:00:00', '2020-11-19 00:00:00'],
