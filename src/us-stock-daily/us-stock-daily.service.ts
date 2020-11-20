@@ -15,8 +15,9 @@ export class USStockDailyService {
     return this.usStockDailyModel.findAll({
       where: {
         sector: { [Op.not]: null },
+        // date: '2020-11-19T00:00:00.000Z',
         date: {
-          [Op.between]: ['2020-9-18T00:00:00.000Z', '2020-11-18T00:00:00.000Z'],
+          [Op.between]: ['2020-9-18T00:00:00.000Z', '2020-11-19T00:00:00.000Z'],
         },
       },
     });
