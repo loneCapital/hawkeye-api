@@ -6,8 +6,8 @@ import { USStockDaily } from './us-stock-daily.model';
 export class USStockDailyController {
   constructor(private readonly usStockDailyService: USStockDailyService) {}
 
-  @Get()
-  fetch(): Promise<USStockDaily[]> {
-    return this.usStockDailyService.findAll();
-  }
+  // @Get()
+  // fetch(): Promise<USStockDaily[]> {
+  //   return this.usStockDailyService.findAll();
+  // }
 }

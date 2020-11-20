@@ -11,14 +11,12 @@ export class USStockDailyService {
     private readonly sequelize: Sequelize,
   ) {}
 
-  async findAll(): Promise<USStockDaily[]> {
+  async findAll(query: any): Promise<USStockDaily[]> {
     return this.usStockDailyModel.findAll({
+      ...query,
       where: {
         sector: { [Op.not]: null },
-        // date: '2020-11-19T00:00:00.000Z',
-        date: {
-          [Op.between]: ['2020-9-18T00:00:00.000Z', '2020-11-19T00:00:00.000Z'],
-        },
+        ...query.where,
       },
     });
   }
