@@ -10,24 +10,26 @@ export class MostActiveStocksController {
   async fetch(): Promise<any> {
     const stocks = await this.usStockDalyService.findAll({
       where: {
-        [Op.or]: [
-          {
-            symbol: 'SPY',
-          },
-          {
-            ma_amt: {
-              [Op.gt]: 10000 * 10000,
-            },
-            sector: {
-              [Op.not]: 'Financials',
-            },
-            date: {
-              [Op.like]: '2020-11-19%',
-            },
-          },
-        ],
+        ma_amt: {
+          [Op.gt]: 10000 * 10000,
+        },
+        sector: {
+          [Op.not]: 'Financials',
+        },
+        date: {
+          [Op.like]: '2020-11-19%',
+        },
       },
     });
+    const spy = await this.usStockDalyService.findAll({
+      where: {
+        symbol: 'AAPL',
+        date: {
+          [Op.like]: '2020-11-19%',
+        },
+      },
+    });
+    console.log('spy', spy[0]);
     return stocks;
   }
 }

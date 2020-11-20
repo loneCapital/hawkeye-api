@@ -31,7 +31,7 @@
 ## Installation
 
 ```bash
-$ npm install
+$ npm install   # 使用这个
 ```
 
 ## Running the app
@@ -41,7 +41,7 @@ $ npm install
 $ npm run start
 
 # watch mode
-$ npm run start:dev
+$ npm run start:dev  # 使用这个
 
 # production mode
 $ npm run start:prod
